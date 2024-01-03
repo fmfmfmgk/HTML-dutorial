@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+form{
+	border: dashed gray;
+	border-width: 0px 0px 1px 0px;
+	width: 350px;
+	margin: 10px;
+	padding: 10px 0px 8px 20px;
+}
+</style>
+</head>
+<body>
+<form action="idCheck.jsp" method="get">
+	<label class="dd">아이디:</label>
+	<input id="in" name="id" required pattern="[a-z][a-zA-Z0-9]{3,9}">
+	<input type="submit" value="중복확인">
+</form>
+
+
+<form action="memberList.jsp" method="get">
+	<label>memberList 보기</label>
+	<input type="submit" value="보러가기">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.box{
+	border: 1px solid blue;
+	padding: 10px;
+	margin: 20px;
+}
+.box input[type=button]{
+	width: 100px;
+	height: 35px;
+	border-radius: 20px;
+	background: blue;
+	color: white;
+}
+.box div{
+	border: 1px dotted orange;
+	padding: 10px;
+	margin: 10px;
+}
+</style>
+<script type="text/javascript">
+/* function proc1(){}
+proc1 = function(){} */
+proc1 = () => {
+	//숫자 2개를 입력받기
+	var in1 = prompt("수를 입력하세요", "1부터 50사이 정수");
+	var in2 = prompt("정수입력");
+	//연산
+	add = parseInt(in1) + parseInt(in2); 
+	sub = in1 - in2;
+	mul = in1 * in2;
+	divide = in1 / in2; 
+	
+	//출력 내용 작성
+	str = "첫번째 수: " + in1 + "<br>";
+	str += "두번째 수: " + in2 + "<br>";
+	str += "덧셈:" + add + "<br>";
+	str += "뺄셈:" + sub + "<br>";
+	str += "곱셈:" + mul + "<br>";
+	str += "나눗셈:" + divide;
+	//출력장소 접근
+	document.getElementById("result").innerHTML = str;
+}
+proc2 = () => {
+	//숫자, 연산자 입력
+	var su1 = parseInt(prompt("수를 입력하세요"));
+	var op = prompt("연산자를 입력하세요 (+,-,*,/)");
+	var su2 = parseInt(prompt("수를 입력하세요"));
+	
+	//연산자 비교
+	/* if(op == "+"){
+		res = su1 + su2;
+	}else if(op == "-"){
+		res = su1 - su2;
+	}else if(op == "*"){
+		res = su1 * su2;
+	}else if(op == "/"){
+		res = su1 / su2;
+	} */
+	
+	switch(op){
+		case "+":
+			res = su1 + su2;
+			break;
+		case "-":
+			res = su1 - su2;
+			break;
+		case "*":
+			res = su1 * su2;
+			break;
+		case "/":
+			res = su1 / su2;
+			break;
+	}
+	
+	//출력내용 작성
+	str = su1 + op + su2 + "= " + res;
+	
+	//출력장소 접근
+	document.getElementById("result2").innerHTML = str;
+}
+
+proc3 = () => {
+	var su1 = parseInt(prompt("점수를 입력하세요"));
+	if(su1 <1 || su1 >100){
+		alert("입력오류입니다.");
+		return false;
+	}
+	switch(true){
+		case (su1 >= 90 && su1<=100):
+			res = "A";
+			break;
+		case (su1 >= 80 && su1<=89):
+			res = "B";
+			break;
+		case (su1 >= 70 && su1<=79):
+			res = "C";
+			break;
+		case (su1 >= 60 && su1<=69):
+			res = "D";
+			break;
+		case (su1 >= 1 && su1<=59):
+			res = "E";
+			break;
+	}
+	//출력내용 작성
+	str = res;
+	
+	//출력장소 접근
+	document.getElementById("result3").innerHTML = 
+		su1+"점은 "+"'"+str+"'"+" 입니다.";
+	
+}
+</script>
+</head>
+<body>
+<div class="box">
+<h4>두 수를 입력하여 사칙연산을 수행</h4>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result"></div>
+</div>
+<br>
+
+<div class="box">
+<h4>두 수와 연산자를 입력하여 사칙연산을 수행</h4>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+</div>
+
+<div class="box">
+<h4>점수를 입력 하여 학점을 출력</h4>
+<input type="button" value="확인" onclick="proc3()">
+<br><br>
+<div id="result3"></div>
+</div>
+
+</body>
+</html>

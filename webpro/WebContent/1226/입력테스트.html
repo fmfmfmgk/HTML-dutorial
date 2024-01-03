@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<style>
+pre{
+ background-color: lightgreen;
+}
+body{
+	margin: 20px;
+	min-width: 1000px;
+}
+.lab{
+	display: inline-block;
+	width: 50px;
+	height: 30px;
+}
+#a{
+	vertical-align: top;
+}
+form{
+ 	width: 25%;
+ 	border: 2px double blue;
+}
+/*#addr
+inpu#addr */
+input[name=arr]{
+	background-color: pink;
+}
+#addr + input{
+	border: 2px solid pink;
+}
+#addr ~ input{
+	border: 3px dotted green;
+}
+</style>
+</head>
+<body>
+<pre >
+입력 후 전송 하면 ~~.jsp로 전송한다.
+전송하기 위해서는 input 필드에 반드시 name속성이 있어야 한다.
+title       : 마우스를 요소 위에 올려놓으면 메모박스가 실행
+required    : 필수항목(반드시 입력해야할 경우)
+autofocus   : 실행시 초기 커서 위치
+pattern     : 정규식
+placeholder : input필드에 나타나는 예시, 제목, 내용
+readonly    : 값을 변경할 수 없는 필드, 반드시 value속성이 있어야 한다. 
+</pre>
+<h2>회원가입 화면</h2>
+<br>
+<br>
+<form action="입력3.jsp" method="post">
+	<lable class="lab">이름</lable>
+	<input name="name"><br>
+	
+	<lable class="lab" id="addr">주소</lable>
+	<input name="arr"><br>
+	
+	<lable class="lab">이메일</lable>
+	<input id="a" name="email"><br>
+
+	 성별
+ 	<input type='radio' name='gender' value='Male' />Male
+  	<input type='radio' name='gender' value='Female' />Female
+	<br>
+	
+	<label class="lab">내용</label>
+	<textarea name="area" rows="5" cols="22" required></textarea>
+	<br>
+	
+	<button type="submit">전송</button>
+	<button type="reset">초기화</button>
+</form>
+
+</body>
+</html>
