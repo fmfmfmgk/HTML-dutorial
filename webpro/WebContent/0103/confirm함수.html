@@ -6,9 +6,28 @@
 <link rel="stylesheet" href="../css/public.css">
 <script type="text/javascript">
 proc1 = () =>{
+		str = "";
 	while(true){
+		//입력
+		su = prompt("구구단 수 를 입력");
 		
+		str += `****${su}단****<br>`;
+		//구구단 작성- 반복문 - 출력내용 작성
+		for (var i = 1; i <= 10; i++) {
+			/* str += su + "*" + i + " = " + (su*i) + "<br>"; */
+			str += `${su} * ${i} = ${su*i} <br>`;
+		}
+		
+		//출력1 or
+	 	document.getElementById('result1').innerHTML = str; 
+		
+		//confirm()함수 호출
+		ss= confirm("계속 하시겠습니까?");
+		
+		if(!ss) break;
 	}
+	//출력2
+	/* document.getElementById('result1').innerHTML = str; */
 }
 </script>
 </head>
