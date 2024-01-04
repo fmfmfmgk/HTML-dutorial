@@ -93,19 +93,21 @@ proc5 = () => {
 proc6 = () => {
 	
 	result = 0;
+	str = "";
 	while(true){
 		vinput1 = parseInt(prompt("첫번째 정수입력"));
 		vinput2 = parseInt(prompt("두번째 정수입력"));
 		if((vinput1+vinput2) >= 100){
 			result = vinput1+vinput2;
-			break;
+			str += `${vinput1} + ${vinput2} = ${result} <br> `; 
+			continue;
 		}else if(vinput1 == 0 && vinput2 == 0){
 			break;
 		}else{
 			continue;
 		}
 	}
-	document.getElementById('result6').innerHTML = result;
+	document.getElementById('result6').innerHTML = str;
 }
 </script>
 </head>
