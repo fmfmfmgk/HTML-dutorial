@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script type="text/javascript">
+addFile = () =>{
+	//p태그 생성
+	ptag = document.createElement('p');
+	
+	//input태그 생성 - type="file"
+	finput = document.createElement('input');
+	finput.type = "file";
+	
+	//input태그 생성 - type="button"
+	binput = document.createElement('input');
+	binput.type = "button";
+	binput.value = "삭제";
+	binput.onclick = function(){
+		parentTag = this.parentNode;
+		parentTag.remove();
+	};
+	
+	//p태그에  두 input을 추가
+	ptag.appendChild(finput);
+	ptag.appendChild(binput);
+	
+	//result1검색
+	//p태그 추가
+	res1 = document.getElementById('result1');
+	res1.appendChild(ptag);
+	
+}
+</script>
+</head>
+<body>
+
+<div class="box">
+<h4></h4>
+<br><br>
+<div id="result1">
+	<input type="file">
+	<input type="button" value="추가" onclick="addFile()">
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/public.css">
+<script type="text/javascript">
+proc1 = () =>{
+	
+	vu1 = document.getElementById('u1');
+	
+	list = vu1.getElementsByTagName('li');
+	
+	str = "";
+	for(i=0; i<list.length; i++){
+		//alert(list[i].firstChild.data);
+		str += `${list[i].firstChild.data}<br>`;
+	}
+	document.querySelector('#result1').innerHTML = str;
+}
+proc2 = () =>{
+	vu2 = document.getElementById('u2');
+	
+	list = vu2.getElementsByTagName('li');
+	
+	str = "";
+	for(i=0; i<list.length; i++){
+		txt = list[i].firstChild.data;
+		
+		vimg = document.createElement('img');
+		vimg.src = "../images/" + txt;
+		vimg.alt = txt;
+		
+		list[i].appendChild(vimg);
+	}
+}
+proc3 = p_img =>{ //매개변수가 하나일때는 괄호를 생략할 수 있다.
+	v_data = p_img.firstChild.data;
+	
+	v_img = document.createElement('img');
+	v_img.src = "../images/" + v_data;
+	v_img.alt = v_img;
+	v_img.style.borderRadius = "50%";
+	
+	p_img.appendChild(v_img);
+}
+
+window.onload = function(){
+	//접근 검색
+	list = document.querySelectorAll('#u4 li');
+	
+	//이벤트 등록
+	for (var i = 0; i < list.length; i++) {
+//		list [i].addEventListener('click', function(){
+//			기능구현
+//		}) 
+		
+		list[i].addEventListener('click', newImg)
+	}
+}
+
+newImg = function(){
+	//this : 클리한 li객체 - list[i]
+		//li객체의 텍스트값 가져오기
+	livalue = this.firstChild.data;
+	
+	vimg = document.createElement('img');
+	
+	vimg.src = "../images/" + livalue;
+	vimg.alt = livalue;
+	
+	this.appendChild(vimg);
+}
+
+
+
+</script>
+<style>
+img{
+	width: 50px;
+	height: 50px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h4></h4>
+<ul id="u1">
+	<li>List Irem1</li>
+	<li>List Item2</li>
+	<li>List Item3</li>
+	<li>List Item4</li>
+	<li>List Item5</li>
+</ul>
+<input type="button" value="확인" onclick="proc1()">
+<br><br>
+<div id="result1"></div>
+</div>
+
+<div class="box">
+<h4></h4>
+<ul id="u2">
+	<li>모래알갱이.png</li>
+	<li>맥미니.jpg</li>
+	<li>기모바지.JPG</li>
+	<li>딸기스무디.jpg</li>
+	<li>맥북.jpg</li>
+</ul>
+<input type="button" value="확인" onclick="proc2()">
+<br><br>
+<div id="result2"></div>
+</div>
+
+<div class="box">
+<h4>&lt;li onclick="proc3(this)">&lt;/li></h4>
+<ul id="u3">
+	<li onclick="proc3(this)">모래알갱이.png</li>
+	<li onclick="proc3(this)">맥미니.jpg</li>
+	<li onclick="proc3(this)">기모바지.JPG</li>
+	<li onclick="proc3(this)">딸기스무디.jpg</li>
+	<li onclick="proc3(this)">맥북.jpg</li>
+</ul>
+<br><br>
+<div id="result3"></div>
+</div>
+
+<div class="box">
+<h4>js에서 일괄적으로 이벤트 핸들러를 구현한다.
+li객체[인덱스].addEventListener('click', newImg)<br>
+newImg : 함수이름, 참조값만 전달, 호출방식이 아니다.</h4>
+<ul id="u4">
+	<li >모래알갱이.png</li>
+	<li >맥미니.jpg</li>
+	<li >기모바지.JPG</li>
+	<li >딸기스무디.jpg</li>
+	<li >맥북.jpg</li>
+</ul>
+<br><br>
+<div id="result4"></div>
+</div>
+
+</body>
+</html>
